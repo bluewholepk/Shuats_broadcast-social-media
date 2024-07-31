@@ -1,0 +1,248 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center ">
+  <!-- header-transparent -->
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1 class="text-light"><a href="/posts"><span>Shuats Broadcast</span></a></h1>
+
+    </div>
+
+    <nav id="navbar-pk" class="navbar-pk">
+      <ul>
+        <li><a class="active " href="/posts" style="text-decoration:none">Home</a></li>
+        <li class="dropdown"><a href="/profile" style="text-decoration:none"><span><%= user.fname %></span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="/profile" style="text-decoration:none">Profile</a></li>
+            <li><a href="/edit/<%= user._id %>" style="text-decoration:none">Update Profile</a></li>
+            <li><a href="/logout" style="text-decoration:none">Logout</a></li>
+
+          </ul>
+        </li>
+
+        <li><a href="/about" style="text-decoration:none">About</a></li>
+        <li><a href="/team" style="text-decoration:none">Team</a></li>
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle-pk"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+
+<main id="main">
+
+  <!-- <div class="container">
+        <div class="header clearfix">
+          <nav id="reload">
+            <ul class="nav nav-pills pull-right">
+              {{#if user}}
+                <input type="hidden"  id="currentuser" value="{{user.username}}">
+                <li role="presentation"><a href="/search">Search <i class="fa fa-search"></i></a></li>
+                <li>
+                  <div class="dropdown" style="">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-plus"></i>
+                  <span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="width: 300px; height: 400px; overflow-y: scroll;">
+                      {{#if user.request}}
+                      {{#each newfriend}}
+                      <li style="border-bottom: 1px solid lightgray">
+                        <a href="#">
+                            <div>
+                              <h4>{{this.username}}</h4>
+                            </div>
+                            <div>
+
+                                <div style="width: 50%; display: inline;">
+                                  <input type="hidden" name="senderId" id="senderId" value="{{this.userId}}">
+                                  <input type="hidden" name="senderName" id="senderName" value="{{this.username}}">
+                                  <button type="submit" id="accept_friend" class="btn btn-primary" style="width: 8em">Accept</button>
+                                </div>
+                                <div style="width: 50%;  display: inline;">
+                                   <input type="hidden" name="user_Id" id="user_Id" value="{{this.userId}}">
+                                  <button type="submit" id="cancel_friend" class="btn btn-primary" style="width: 8em">Cancel</button>
+                                </div>
+                            </div>
+                        </a>
+                      </li>
+                      {{/each}}
+                      {{else}}
+                      <div>
+                        <h4 style="text-align:center">No requests</h4>
+                      </div>
+                      {{/if}}
+                    </ul>
+                  </div>
+                </li>
+                <li role="presentation"><a href="/users/logout">Logout</a></li>
+              {{else}}
+                <li role="presentation"><a href="/users/login">Login</a></li>
+                <li role="presentation"><a href="/users/register">Register</a></li>
+              {{/if}}
+            </ul>
+          </nav>
+          <h3 class="text-muted"><img src="../upload/panda.png" style="width: 100px; position: absolute;left: 200px"> Panda DOTS</h3>
+        </div> -->
+
+
+
+  <section class="breadcrumbs" style="background-color:#e1e5ea;">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <script>
+          function display_ct7() {
+            var x = new Date()
+            var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+            hours = x.getHours() % 12;
+            hours = hours ? hours : 12;
+            hours = hours.toString().length == 1 ? 0 + hours.toString() : hours;
+
+            var minutes = x.getMinutes().toString()
+            minutes = minutes.length == 1 ? 0 + minutes : minutes;
+
+            var seconds = x.getSeconds().toString()
+            seconds = seconds.length == 1 ? 0 + seconds : seconds;
+
+            var month = (x.getMonth() + 1).toString();
+            month = month.length == 1 ? 0 + month : month;
+
+            var dt = x.getDate().toString();
+            dt = dt.length == 1 ? 0 + dt : dt;
+
+            var x1 = "Date " + dt + "/" + month + "/" + x.getFullYear();
+            x1 = x1 + " - Time " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+            document.getElementById('ct7').innerHTML = x1;
+            display_c7();
+          }
+
+          function display_c7() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct7()', refresh)
+          }
+          display_c7()
+        </script>
+        <span id='ct7'></span>
+        <ol>
+          <li><a href="/" style="text-decoration:none">Home</a></li>
+          <li>Profile</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us section-bg" data-aos="fade-up" date-aos-delay="200">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center p-5">
+          <div class="icon-box">
+           
+            <%- include('partials/messages') %>
+
+
+          
+              <div class=" mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                 
+                  <div class="col-md-7">
+                    <div class="">
+                      <br>
+                      <!-- <h3></h3> -->
+                      <img class="profilestyle" src="/upload/<%=user.userImage%>" alt="user.userImage" width="200px" style="border-radius: 100%;margin-left:40px;">
+                        <br>
+                      <h5 class="card-title" style="text-align: center;"><br><b><%=user.fname%></b></h5>
+                      <p class="card-text"> <%=user.prof%></p>
+                      <p class="card-text"><small class="text-muted"><%=user.about%></small></p><br>
+                      <div class="row ">
+                        <hr>
+                        <div class="col-md-12">
+                          <h4 class="pk-line"><span>&nbsp; Personal Details &nbsp;</span></h4>
+                          <br>
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Gender : </th>
+                                <td colspan="2"><%=user.gender%></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">DOB :</th>
+                                <td colspan="2"><%=user.dob%></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Email :</th>
+                                <td colspan="2"><%=user.email%></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Phone :</th>
+                                <td colspan="4"><%=user.phone%></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Address :</th>
+                                <td colspan="4"><%=user.address%></td>
+                              </tr>
+                             
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+          
+                      </div>
+
+                      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                  </div>
+                </div>
+              </div>
+            
+            <br>
+
+             
+            <!-- <button type="button" class="btn btn-info">Notification</button> -->
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Why Us Section -->
+
+
+</main>
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+
+  <div class="footer-top" style="padding-top: 20px;padding-bottom: 0px;border-bottom-width: 0px;">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-lg-4 col-md-4 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            SHUATS <br>
+            PRAYAGRAJ, UTTERPRADESH<br>
+            India <br><br>
+            <strong>Phone:</strong> +91 9973437754<br>
+            <strong>Email:</strong> shuatsbroadcast@gmail.com<br>
+          </p>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 footer-info">
+          <h3>About Shuats Broadcast</h3>
+          <p>This is the new online patform where we can post your thoughts.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; <strong><span>Shuats Broadcast</span></strong>
+    </div>
+
+  </div>
+</footer><!-- End Footer -->

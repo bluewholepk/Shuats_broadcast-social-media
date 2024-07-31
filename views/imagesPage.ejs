@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shuats Broadcast</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.2/font/bootstrap-icons.min.css" integrity="sha512-D1liES3uvDpPrgk7vXR/hR/sukGn7EtDWEyvpdLsyalQYq6v6YUsTUJmku7B4rcuQ21rf0UTksw2i/2Pdjbd3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> -->
+    
+<style>
+  
+    /* Basic styles for the post card */
+    .post-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      width: 50%;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+    }
+    .user-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .post-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .post-content {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .post-author {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .post-timestamp {
+      color: #888;
+      font-size: 12px;
+    }
+    .action-button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+
+      body{
+        background-color: #c1dfc4;
+      }
+      h1 {
+        font-size: 3.5em; /* 40px/16=2.5em */ 
+       
+        text-shadow: 2px 2px 10px #fff;
+        }
+
+      h2 {
+        font-size: 1.5em; /* 30px/16=1.875em */
+        text-shadow: 2px 2px 50px #ff2600;
+        }
+
+      p {
+         font-size: 0.875em; /* 14px/16=0.875em */
+       }
+       .shadow1{
+        color: #fff;
+        text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+       }
+   
+</style>
+</head>
+<body class="w3-theme-l5">
+
+
+<!-- Navbar -->
+<header>
+
+	<nav class="navbar fixed-top bg-body-tertiary bg-dark border-bottom border-body">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="/posts">Shuats Broadcast</a>
+      <a href="/profile" style="text-decoration:none"><img src="/upload/<%=user.userImage%>" class="w3-circle" style="width:25px" alt="Avatar"></a>
+      <!-- <a href="/logout"><i class="bi bi-power"></i></a> -->
+
+		</div>
+	  </nav>
+</header>
+
+
+<!-- Navbar on small screens -->
+
+<section>
+  <center>
+  <div class="container mt-3">
+    <form action="/posts" method="post">
+      <div class="input-group">
+        <input type="text" name="desc" class="form-control" placeholder="What's in your mind?" aria-label="Recipient's username with two button addons" required autocomplete="off">
+        <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-pencil-square"></i></button>
+        <button  type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#login" ><i class="bi bi-image"></i></button>
+      </div>
+      <!-- <input type="text" class="form-control" name="desc" placeholder="What's in your mind ?" aria-label="Recipient's username with two button addons"> -->
+    </form>
+  </div>
+  <div class="container mt-3">
+    <% items.reverse().forEach(function(image) { %>
+    <div class="post-card">
+      <div class="post-header">
+        <a href="/users/<%=image.userId%>"><img class="user-image" src="/upload/<%= image.userImage %>" alt="User Image"></a>
+        <div>
+          <!-- <div class="post-title">Sample Post Title</div> -->
+          <div class="post-author"><a href="/users/<%=image.userId%>"><%= image.fname %></a></div>
+          <div class="post-timestamp"><%= image.timeDifference %></div>
+        </div>
+      </div>
+      <div class="post-content">
+        
+        <p>
+          
+            <% if (image.img && image.img.data && image.img.contentType) { %>
+                <img src="data:<%= image.img.contentType %>;base64, <%= image.img.data.toString('base64') %>" width="100%" height="auto">
+            <% } else { %>
+                <!-- Handle when no image is available -->
+            <% } %>
+     
+
+        
+        </p>
+          <br>
+        <p><%= image.desc %></p>
+        <br>
+      </div>
+      <!-- <button class="action-button">Like</button> -->
+    </div>
+    <% }) %>
+
+  </div>
+</center>
+  
+</section>
+    
+<section style="padding-top: 0px;padding-bottom: 0px;">  
+	<!-- Login Modal -->
+	<div class="modal fade " id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog " style="margin-top: 200px;">
+		<div class="modal-content" style="background-color: #000;color:#fff;">
+		  <div class="modal-header" >
+			<h1 class="modal-title fs-5" id="exampleModalLabel">What's in your mind ?</h1>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: #ff2600;"><i class="bi bi-x-circle-fill"></i></button>
+		  </div>
+		  <form action="/posts" method="POST" enctype="multipart/form-data">
+			<div class="modal-body">
+		  
+				<div class="form-floating">
+					<textarea class="form-control" placeholder="Write Somthing About your images/pictures .." id="floatingTextarea2" style="height: 100px;color: #000;" name="desc" value=" " required></textarea>
+					<label for="floatingTextarea2">What's in your mind ?</label>
+				  </div>
+				  <br>
+				  <div class="input-group mb-3">
+					<input type="file" class="form-control" id="inputGroupFile01" name="image" required>
+				  </div>
+			</div>
+			<div class="modal-footer">
+			  <button type="submit" class="btn btn-outline-info btn-sm">Post Images  <i class="bi bi-image"></i></button>
+
+			</div>
+
+		  </form>
+		 
+		</div>
+	  </div>
+	</div>
+  </section>
+
+</body>
+</html> 
+<!-- ----------------------------------------------------- end line -------------------------------------------- -->

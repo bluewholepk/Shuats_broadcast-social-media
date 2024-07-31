@@ -1,0 +1,153 @@
+    <script>
+      function enableButton2() {
+        document.getElementById("button2").disabled = false;
+      }
+    </script>
+
+
+
+    </html>
+
+    <script>
+      function myFunction() {
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("Copied worker Email Id . ");
+      }
+    </script>
+    <script>
+      function myFunction1() {
+        // var copyText = document.getElementById("myInput1");
+        // copyText.select();
+        // copyText.setSelectionRange(0, 99999)
+        // document.execCommand("copy");
+        alert("If you not copied my email. Please ! Copy ");
+      }
+    </script>
+    <main id="main">
+      <section class="breadcrumbs" style="background-color:#e1e5ea;padding-bottom: 15px;padding-top: 15px;">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <script>
+              function display_ct7() {
+                var x = new Date()
+                var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+                hours = x.getHours() % 12;
+                hours = hours ? hours : 12;
+                hours = hours.toString().length == 1 ? 0 + hours.toString() : hours;
+
+                var minutes = x.getMinutes().toString()
+                minutes = minutes.length == 1 ? 0 + minutes : minutes;
+
+                var seconds = x.getSeconds().toString()
+                seconds = seconds.length == 1 ? 0 + seconds : seconds;
+
+                var month = (x.getMonth() + 1).toString();
+                month = month.length == 1 ? 0 + month : month;
+
+                var dt = x.getDate().toString();
+                dt = dt.length == 1 ? 0 + dt : dt;
+
+                var x1 = "Date " + dt + "/" + month + "/" + x.getFullYear();
+                x1 = x1 + " - Time " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+                document.getElementById('ct7').innerHTML = x1;
+                display_c7();
+              }
+
+              function display_c7() {
+                var refresh = 1000; // Refresh rate in milli seconds
+                mytime = setTimeout('display_ct7()', refresh)
+              }
+              display_c7()
+            </script>
+            <span id='ct7'></span>
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+              </li>
+              <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Book Now</a>
+            </li> -->
+              <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+              <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+            </ul>
+            <!-- <ol>
+            <li><a href="/" style="text-decoration:none">Home</a></li>
+            <li><a href="/" style="text-decoration:none">Book Now</a></li>
+
+          </ol> -->
+
+          </div>
+        </div>
+      </section>
+      <section class="why-us section-bg" data-aos="fade-up" date-aos-delay="200">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 d-flex flex-column justify-content-center p-5">
+              <div class="icon-box">
+                <%- include('partials/messages') %>
+
+
+                <center>
+                  <div class=" mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-5">
+                        <img class="profilestyle" src="/upload/<%=userImage%>" alt="user.userImage" width="200px" style="border-radius: 100%;"><br>
+                        <!-- <a href="/pservice" align="right" >Heir Me</a> -->
+                      </div>
+                      <div class="col-md-7">
+                        <div class="card-body">
+                          <br>
+                          <!-- <h3></h3> -->
+                          <h5 class="card-title"><b><%=fname%></b></h5>
+                          <p class="card-text"> <%=prof%></p>
+                          <p class="card-text"><small class="text-muted"><%=about%></small></p><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </center>
+                <br>
+
+                 
+                <!-- <button type="button" class="btn btn-info">Notification</button> -->
+                <div class="row g-0">
+                  <hr>
+                  <div class="col-md-6">
+                    <h4 class="pk-line"><span>&nbsp; Personal Details &nbsp;</span></h4>
+                    <br>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Gender : </th>
+                          <td colspan="2"><%=gender%></td>
+                        </tr>
+
+                        <tr>
+                          <th scope="row">Email :</th>
+                          <td colspan="2"><input type="text" value="<%=email%>" id="myInput" disabled> <button class="btn btn-outline-dark btn-sm" onclick="myFunction(); enableButton2()"><i class="fas fa-copy"></i></button></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Phone :</th>
+                          <td colspan="4"><%=phone%></td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                    <br>
+                  </div>
+
+                
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Why Us Section -->
+    </main>

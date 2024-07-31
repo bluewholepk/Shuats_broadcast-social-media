@@ -1,0 +1,142 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center ">
+  <!-- header-transparent -->
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1 class="text-light"><a href="/"><span>Shuats Broadcast</span></a></h1>
+
+    </div>
+
+    <nav id="navbar-pk" class="navbar-pk">
+      <ul>
+        <li><a class="active " href="/" style="text-decoration:none">Home</a></li>
+        <li class="dropdown"><a href="/profile" style="text-decoration:none"><span><%= user.fname %></span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="/profile" style="text-decoration:none">Profile</a></li>
+            <li><a href="/edit/<%= user._id %>" style="text-decoration:none">Update Profile</a></li>
+            <li><a href="/logout" style="text-decoration:none">Logout</a></li>
+
+          </ul>
+        </li>
+
+        <li><a href="/about" style="text-decoration:none">About</a></li>
+        <li><a href="/team" style="text-decoration:none">Team</a></li>
+
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle-pk"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+<main id="main">
+  <!-- ======= Our Team Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Our Team</h2>
+        <ol>
+          <li><a href="/" style="text-decoration:none">Home</a></li>
+          <li>Our Team</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Our Team Section -->
+
+  <!-- ======= Team Section ======= -->
+  <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+    <div class="container" style="margin: auto;">
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-3 d-flex align-items-stretch">
+          <div class="member">
+            <div class="member-img">
+              <img src="assets/img/team/prashant.png" class="img-fluid" alt="" style="border-radius: 300px;" width="300px">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4 align="center">Prashant Kumar</h4>
+              <!-- <span align="center">Administrator</span> -->
+              <p>“If You Think Math is Hard Try Web Design
+                Pixxelznet</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 d-flex align-items-stretch">
+          <div class="member">
+            <div class="member-img">
+              <img src="assets/img/team/manya.jpg" class="img-fluid" alt="" style="border-radius: 300px;" width="300px">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4 align="center">Manya Kesarwani</h4>
+              <!-- <span align="center">Analyser</span> -->
+              <p>“Websites should look good from the inside and out.”
+                – Paul Cookson</p>
+            </div>
+          </div>
+        </div>
+
+       
+
+      
+
+      </div>
+
+    </div>
+  </section><!-- End Team Section -->
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->
+
+
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+
+  <div class="footer-top" style="padding-top: 20px;padding-bottom: 0px;border-bottom-width: 0px;">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-4 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            SHUATS<br>
+            PRAYAGRAJ, UTTERPRADESH<br>
+            India <br><br>
+            <strong>Phone:</strong> +91 9973437754<br>
+            <strong>Email:</strong> shuatsbroadcast@gmail.com<br>
+          </p>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 footer-info">
+          <h3>About Shuats Broadcast</h3>
+          <p>This is the new online patform where we can share your thoughts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; <strong><span>Shuats Broadcast</span></strong>
+    </div>
+
+  </div>
+</footer><!-- End Footer -->
